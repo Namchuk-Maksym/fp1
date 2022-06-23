@@ -85,5 +85,16 @@ object MyList:
     }
     go(n, f)
   }
+  
+  def unique[A](xs: MyList[A]) = {
+    def go(set: Set[A], acc: MyList[A]): MyList[A] = {
+      acc match {
+        case MyNil => MyNil
+        case MyCons(hd,tail) if set contains hd => go(set, tail)
+        case MyCons(hd,tail) => MyCons(hd, go(set + hd, tail))
+      }
+    }
+    go(Set(), xs)
+  }
 @main def run(): Unit = {
 }
