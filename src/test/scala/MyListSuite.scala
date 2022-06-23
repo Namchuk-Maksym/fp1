@@ -58,4 +58,19 @@ class MyListSuite extends FunSuite {
     val actual = tabulate(3, x=>x*10)
     assertEquals(actual, expected)
   }
+  test("unique for (MyList(1,1,1,2,3,4,5,5,4,4)) ") {
+    val expected = MyList(1,2,3,4,5)
+    val actual = unique(MyList(1,1,1,2,3,4,5,5,4,4))
+    assertEquals(actual, expected)
+  }
+  test("unique for (MyList(1,1,1,2,2,3,3)) ") {
+    val expected = MyList(1,2,3)
+    val actual = unique(MyList(1,1,1,2,2,3,3))
+    assertEquals(actual, expected)
+  }
+  test("unique for (MyList(2,2,2,3,3,4,4,4)) ") {
+    val expected = MyList(2,3,4)
+    val actual = unique(MyList(2,2,2,3,3,4,4,4))
+    assertEquals(actual, expected)
+  }
 }
